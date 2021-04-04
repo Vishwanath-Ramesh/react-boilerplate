@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t react-boilerplate .
+
+script:
+  - docker run react-boilerplate npm run test -- --coverage
+
+before_deploy:
+  - docker run react-boilerplate pwd
+  - docker run react-boilerplate ls
+  - docker run -v ${TRAVIS_BUILD_DIR}:/dist react-boilerplate
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  
+  keep_history: true
+  on:
+    branch: master
