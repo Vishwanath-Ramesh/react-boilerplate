@@ -6,7 +6,7 @@ before_install:
   - docker build -t react-boilerplate .
 
 script:
-  - docker run react-boilerplate npm run test -- --coverage
+  - docker run react-boilerplate -v ${TRAVIS_BUILD_DIR}/docs:/prj/docs npm run test -- --coverage
 
 deploy:
   provider: pages
