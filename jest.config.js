@@ -6,7 +6,7 @@ module.exports = {
     'assets/(.*)': require.resolve('./test/mockModule.js'), // Mock for assets
   },
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'], // Imports the supplied files in all the test suites
-  collectCoverageFrom: ['**/src/**/*.js'], // To cover all the files inside the src folder while generating the test report
+  collectCoverageFrom: ['**/src/**/*.js', '!**/src/index.js'], // To cover all the files inside the src folder while generating the test report
   coverageThreshold: {
     // Setting the threshold levels for the different test results to meet.
     // global: {

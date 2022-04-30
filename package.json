@@ -13,6 +13,7 @@
     "validate-parallel": "npm-run-all --parallel format lint test build",
     "test": "jest",
     "test:related": "jest --findRelatedTests",
+    "test:coverage": "jest --coverage",
     "test:report": "jest --coverage && serve ./coverage/lcov-report",
     "test:watch": "jest --watchAll",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
