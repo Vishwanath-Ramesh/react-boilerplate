@@ -46,6 +46,16 @@ module.exports = {
     'no-console': 'error', // Disallows usage of console in the code
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }], // Temporarily added to support JSX in .js file
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
     /* The below rules were included by default in eslint recommendation('eslint:recommended') */
     // "valid-typeof": "error", // Check for invalid typeof check
     // "no-unsafe-negation": "error", // Checks for unexpected negation before the left operand. Eg: if(!one === two)

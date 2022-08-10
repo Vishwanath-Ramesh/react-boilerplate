@@ -7,7 +7,7 @@ For [Fullstack boilerplate](https://github.com/Vishwanath-Ramesh/fullstack-boile
 ## Tools & Libraries used
 
 - React
-- JavaScript
+- TypeScript
 - Axios
 - Webpack
 - Babel

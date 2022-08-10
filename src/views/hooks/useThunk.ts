@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { Reducer } from 'react'
 
-function useThunkReducer(reducer, initialState) {
+function useThunkReducer<R extends Reducer<any, any>>(
+  reducer: R,
+  initialState: any
+) {
   const [state, dispatch] = React.useReducer(reducer, initialState)
 
   const enhancedDispatch = React.useCallback(
-    (thunkAction) => {
+    (thunkAction: Function) => {
       if (typeof thunkAction === 'function') thunkAction(dispatch)
       else dispatch(thunkAction)
     },

@@ -7,7 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin') // minify/minimize your Ja
 
 module.exports = (env) => ({
   mode: env.NODE_ENV || 'development',
-  entry: './src/index.js', // From v5, this is default
+  entry: './src/index.jsx', // From v5, this is default
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[name].chunk.js',
@@ -65,6 +65,7 @@ module.exports = (env) => ({
           loader: 'babel-loader',
         },
       },
+      { test: /\.(ts|tsx)$/, loader: 'ts-loader' },
       {
         test: /\.(scss|css)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
@@ -76,6 +77,7 @@ module.exports = (env) => ({
     ],
   },
   resolve: {
+    extensions: ['.ts', '.tsx', '.js', 'jsx'],
     alias: {
       pages: path.resolve(__dirname, 'src/views/pages'),
       components: path.resolve(__dirname, 'src/views/components'),

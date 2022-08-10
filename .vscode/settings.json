@@ -35,5 +35,8 @@
   "editor.suggestSelection": "first",
   "editor.smoothScrolling": false,
   "breadcrumbs.enabled": true,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

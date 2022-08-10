@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { ErrorInfo, ReactNode } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 const Container = styled.div`
   .errorboundary {
@@ -71,13 +70,24 @@ const Container = styled.div`
     margin: 0;
   }
 `
-class ErrorBoundary extends React.Component {
-  constructor(props) {
+
+type Props = {
+  children?: ReactNode
+}
+
+type State = {
+  error: Error | null
+  errorInfo: ErrorInfo | null
+}
+
+class ErrorBoundary extends React.Component<Props, State> {
+  public state: State = { error: null, errorInfo: null }
+
+  constructor(props: Props) {
     super(props)
-    this.state = { error: null, errorInfo: null }
   }
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     this.setState({
       error,
       errorInfo,
@@ -117,10 +127,6 @@ class ErrorBoundary extends React.Component {
 
     return children
   }
-}
-
-ErrorBoundary.propTypes = {
-  children: PropTypes.element.isRequired,
 }
 
 export default ErrorBoundary

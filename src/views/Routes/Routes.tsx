@@ -8,7 +8,7 @@ import {
 
 const PageNotFound = lazy(() => import('../pages/PageNotFound'))
 
-const Routes = () => {
+const Routes: React.FC = () => {
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>

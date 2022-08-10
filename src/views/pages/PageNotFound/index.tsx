@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 
 const Container = styled.div`
   display: flex;
@@ -44,7 +44,15 @@ const Container = styled.div`
   }
 `
 
-const PageNotFound = (props) => {
+const propTypes = {
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
+}
+
+type PageNotFoundProps = InferProps<typeof propTypes>
+
+const PageNotFound: React.FC<PageNotFoundProps> = (props) => {
   return (
     <Container className="pagenotfound">
       <div className="pagenotfound__title">
@@ -63,10 +71,6 @@ const PageNotFound = (props) => {
   )
 }
 
-PageNotFound.propTypes = {
-  history: PropTypes.shape({
-    goBack: PropTypes.func,
-  }).isRequired,
-}
+PageNotFound.propTypes = propTypes
 
 export default PageNotFound
